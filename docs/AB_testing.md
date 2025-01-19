@@ -34,7 +34,12 @@ Para encontrarlo, tenemos que saber conocer el valor crítico (dado alpha) de la
 
 <img src ="/home/lautipintos/Documentos/MachineLearning_101/src/power_stat.png">
 
-Un alto poder estadístico nos asegura que si hay una diferencia estadística significativa entre las dos distribuciones nuestro test o modelo la va a detectar con alta probabilidad.
+Un alto poder estadístico nos asegura que si hay una diferencia estadística significativa entre las dos distribuciones nuestro test o modelo la va a detectar con alta probabilidad. Entonces ¿Qué cosas pueden afectar a tener un bajo poder estadístico?
+
+* Varianza: Una alta varianza respecto a nuestra variable dependiente (En este caso, la clasificación binaria de default o no). Si nuestra muestra presenta mucha varianza producto de que los usuarios son muy distintos entre sí sin evidenciar un comportamiento distinto, puede ser que amabas distribuciones se superponga.
+
+* Effect Size: Es la distancia entre medias de ambos grupos. Logicamente si los grupos son muy distitnos, la media de las distribuciones sería distinta y por ende las muestra cada vez más diferencia y las distribuciones no se solaparan. 
+
 
 #### ¿Cómo definimos el experimiento?
 
@@ -64,8 +69,8 @@ En este caso tenemos que validar que el experimiento haya sido ejecutado sin nin
 * Sesgos en la distribución de los grupos. La distribución entre ambos grupos tiene que ser homogenea antes y después del experimiento. Para esto se realizan AA test
 * Realizar "sample ratio mismatch". Acá lo que tenemos que verificar es que ambos grupos tengan la misma cantidad de clientes que puede no ocurrir producto de fallas en los algorítmos de randomization. Para esto se realizan pruebas de hipótesis de Chi-cuadrado que evalua el ratio muestral.
 
+
 #### Interpretación de resultados
 
 En la interpretación de resultados será sumamente importante tener en cuenta un intervalo de confianza y estar alineados en mantener la estratégia de MDE. Podemos superar nuestro target de MDE en términos de variación relativa entre grupos pero posiblemente los intervalos de confianza no terminen de arrojar un resultado consistente producto del gran desvío que tiene el resultado.
-
 
