@@ -22,17 +22,19 @@ En este momento también tenemos que definir el nivel de significancia (alpha) d
 
 Otros parámetros a definir son: "statistical power" (la probabilidad de detectar un efecto dado que la hipótesis alternatva es cierta es iguala al ... 80%) y el "minimum detectable effect (MDE)" (Generalmente es una variación mínima en el indicador que estamos mirando...1%)
 
-¿Cómo se interpreta el "statistical power?
+##### ¿Cómo se interpreta el "statistical power?
 
-Basicamente, el p-value de la distribución de la hipotesis nula (alpha) nos habla del **error de tipo 1** (los falsos positivos o la probabilidad de encontrar un **falso positivo**). Por ejemplo, en un modelo de score sería la probabilidad de encontrar una operación mala pero que el modelo califique como buena.
+Basicamente, el p-value de la distribución de la hipotesis nula (alpha) nos habla del **error de tipo 1** (los falsos positivos o la probabilidad de encontrar un **falso positivo**). **Podríamos decir que es la probabilidad de encontrar algo diferente cuando en realidad es igual**. Por ejemplo, en un modelo de score sería la probabilidad de encontrar una operación buena pero que el modelo califique como mala. En este caso, estamos asumiendo un comportamiento que no existe. En este caso, si rechazamos la hipótesis nula.
 
-Por ende, el beta nos habla de la probabilidad de encontrar un **error tipo 2**. Esto quiere decir, la probabilidad de encontrar un **falso negativo** que por ejemplo en un modelo de score es una operación buena que el modelo clasifico como mala. Por ende, "1-beta" son todas las operaciones que estamos rechazando correctamente la hipotesis nula. A esto se lo conocemo como el **poder del estadístico**. En otras palabras el error de tipo 2 hace referencia a rechazar la hipótesis nula cuando la hipótesis alternativa es correcta (falso negativo).
+Por ende, el beta nos habla de la probabilidad de encontrar un **error tipo 2**. Esto quiere decir, la probabilidad de encontrar un **falso negativo** que por ejemplo en un modelo de score sería concluir que una operación va no va a defaultear (para nuestro modelo es una operación sana) cuando en realidad si va a defaultear. En términos simples sería no encontrar una diferencia significativa entre ambas versiones cuando en realidad si la hay. **Sería saltearnos algo.** En este caso, no rechazamos la hipotesis nula (cuando tendríamos que haberlo hecho).
+ 
+Por ende, "1-beta" son todas las operaciones que estamos rechazando correctamente la hipotesis nula. Es decir, detectar una diferencia real entre ambas distribuciones cuando esa diferencia de verdad existe. A esto se lo conocemo como el **poder del estadístico**. En forma más sencilla, "beta" es la probabilidad de cometer un error de tipo 2, no detecar una diferencia cuando de verdad existe y por ende no rechazar la hipotesis nula. Si pensamos en el complemento de esa probabilidad: Sería detectar una diferencia cuando de verdad esa diferencia existe.
 
 Para encontrarlo, tenemos que saber conocer el valor crítico (dado alpha) de la distribución de la hipótesis nula y evaluarlo en la distribución alternativa. La región a la derecha de este valor es el poder del estadístico.
 
 <img src ="/home/lautipintos/Documentos/MachineLearning_101/src/power_stat.png">
 
-
+Un alto poder estadístico nos asegura que si hay una diferencia estadística significativa entre las dos distribuciones nuestro test o modelo la va a detectar con alta probabilidad.
 
 #### ¿Cómo definimos el experimiento?
 
